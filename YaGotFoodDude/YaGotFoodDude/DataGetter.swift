@@ -10,14 +10,20 @@ import Foundation
 import CoreData
 
 class DataGetter {
-    public static func getMeals(context: NSManagedObjectContext, callback:
-        ((_ meals: [NSManagedObject], _ error: NSError?) -> Void)) {
+    static let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    
+    public static func getMeals(callback: ((_ meals: [NSManagedObject], _ error: NSError?) -> Void)) {
+        print("boutta request")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Meal")
-        request.sortDescriptors = [NSSortDescriptor(key: "weekStart", ascending: true)] // [0] is oldest
-        
+        // request.sortDescriptors = [NSSortDescriptor(key: "weekStart", ascending: true)] // [0] is oldest
+        print(request)
         do {
-            let goals = try context.fetch(request)
-            callback(goals as! [NSManagedObject], nil)
+            callback([], nil)
+//            print("boutta get meals")
+//            let meals = try context.fetch(request)
+//            print(meals)
+//            print("meals^")
+//            callback(meals as! [NSManagedObject], nil)
         } catch let error as NSError {
             callback([], error)
         }

@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 class ImageGetter {
-    public static func get(_ query: String, _ iv: UIImageView, cb: @escaping (UIImage?) -> ()) {
+    public static func get(_ query: String, cb: @escaping (UIImage?) -> ()) {
         initialQuery(query) { url in // this should be a string but its not
             if url != nil {
-                self.downloadImage(url!, iv, cb)
+                self.downloadImage(url!, cb)
             }
         }
     }
     
-    private static func downloadImage(_ url: String, _ iv: UIImageView, _ cb: @escaping (UIImage?) -> ()) {
+    private static func downloadImage(_ url: String, _ cb: @escaping (UIImage?) -> ()) {
         let catPictureURL = URL(string: url)!
         
         // Creating a session object with the default configuration.

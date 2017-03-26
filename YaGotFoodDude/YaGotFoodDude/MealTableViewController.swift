@@ -15,6 +15,8 @@ class MealTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fetchMeals()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,6 +29,14 @@ class MealTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Personal
+    
+    func fetchMeals() {
+        DataGetter.getMeals { meals, error in
+            print(meals)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,15 +50,16 @@ class MealTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as! MealTableViewCell
-
-        ImageGetter.get("milk", cell.imgView) { image in
+        let mealName = meals[indexPath.row].value(forKey: "name") as! String
+        
+        ImageGetter.get(mealName) { image in
             DispatchQueue.main.async() {
                 cell.imgView.image = image
-                self.view.addSubview(cell.imgView)
+//                self.view.addSubview(cell.imgView)
             }
         }
         
-        cell.meal.text = meals[indexPath.row].value(forKey: "name") as? String
+        cell.meal.text = mealName
         cell.ingredients.text = meals[indexPath.row].value(forKey: "ingredients") as? String
         
         return cell

@@ -14,7 +14,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        ImageGetter.get("milk", testiv) { image in
+        ImageGetter.get("milk") { image in
             DispatchQueue.main.async() {
                 
                 //self.testiv.frame = CGRect(x: self.view.frame.width/2-25, y: self.view.frame.height/2-25, width: 50, height: 50)
