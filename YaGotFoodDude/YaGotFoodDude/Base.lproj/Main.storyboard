@@ -167,7 +167,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meal" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yph-aO-fJw">
-                                <rect key="frame" x="163" y="222" width="89.333333333333343" height="48"/>
+                                <rect key="frame" x="20" y="222" width="374" height="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -206,7 +206,9 @@
                             <constraint firstItem="Csl-FE-OSr" firstAttribute="centerX" secondItem="0Ex-kq-69z" secondAttribute="centerX" id="0Ow-pc-RKB"/>
                             <constraint firstItem="Yph-aO-fJw" firstAttribute="centerX" secondItem="0Ex-kq-69z" secondAttribute="centerX" id="5RJ-EU-Zo9"/>
                             <constraint firstItem="7b0-ur-wRv" firstAttribute="top" secondItem="Csl-FE-OSr" secondAttribute="bottom" constant="17" id="9DH-9u-QRG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yph-aO-fJw" secondAttribute="trailing" id="CTA-ov-PQB"/>
                             <constraint firstItem="ynS-Y6-C9C" firstAttribute="top" secondItem="Yph-aO-fJw" secondAttribute="bottom" constant="-3" id="FRt-Yp-VSc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Yph-aO-fJw" secondAttribute="leading" id="I1l-eW-HKz"/>
                             <constraint firstItem="iMX-pN-Gf4" firstAttribute="top" secondItem="ynS-Y6-C9C" secondAttribute="bottom" constant="24" id="MSC-IM-41a"/>
                             <constraint firstItem="sMj-fp-CEg" firstAttribute="centerY" secondItem="Csl-FE-OSr" secondAttribute="centerY" id="R6J-1l-iaa"/>
                             <constraint firstItem="7b0-ur-wRv" firstAttribute="centerX" secondItem="0Ex-kq-69z" secondAttribute="centerX" id="bZ1-0o-OTj"/>

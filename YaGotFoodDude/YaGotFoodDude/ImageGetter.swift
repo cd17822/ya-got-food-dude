@@ -55,8 +55,12 @@ class ImageGetter {
     private static func initialQuery(_ query: String, _ cb: @escaping (String?) -> ()) {
         let config = URLSessionConfiguration.default // Session Configuration
         let session = URLSession(configuration: config) // Load configuration into Session
-        let url = URL(string: "https://pixabay.com/api/?key=4915229-c4d2e0ed2084483a64af60712&q=\(query)&image_type=photo&per_page=10")
-        
+        let urlizedQuery = query.addingPercentEncoding(withAllowedCharacters: [])
+        let url = URL(string: "https://pixabay.com/api/?key=4915229-c4d2e0ed2084483a64af60712&q=\(urlizedQuery)&image_type=photo&per_page=10")
+        if url == nil {
+            print(urlizedQuery)
+            return
+        }
         let task = session.dataTask(with: url!, completionHandler: {
             (data, response, error) in
             
