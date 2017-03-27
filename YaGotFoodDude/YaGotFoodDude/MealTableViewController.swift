@@ -80,13 +80,30 @@ class MealTableViewController: UITableViewController {
         cell.meal.text = meal.name!.capitalized
         
         var ingredientsList = ""
-        for (index, ingredient) in meal.ingredients!.enumerated() {
-            ingredientsList += (ingredient as! Ingredient).name!.capitalized
-            if index != meal.ingredients!.count - 1 {
-                ingredientsList += ", "
+        var neededIngredients = [Ingredient]()
+        for ingredientAsAny in meal.ingredients! {
+            let ingredient = ingredientAsAny as! Ingredient
+            if !(ingredient).isOwned {
+                neededIngredients.append(ingredient)
             }
         }
-        cell.ingredients.text = ingredientsList
+        
+        if neededIngredients.count == 0 {
+            cell.ingredients.text = "You have all ingredients needed!"
+        } else {
+            cell.meal.textColor = UIColor(red:0.94, green:0.24, blue:0.55, alpha:1.00)
+            
+            for (index, ingredient) in neededIngredients.enumerated() {
+                ingredientsList += (ingredient).name!.capitalized
+                if index != meal.ingredients!.count - 1 {
+                    ingredientsList += ", "
+                }
+            }
+            cell.ingredients.text = "Need: \(ingredientsList)"
+        }
+        
+        cell.arrowImageView.isHidden = false
+        cell.haveItTextView.isHidden = true
         
         return cell
     }

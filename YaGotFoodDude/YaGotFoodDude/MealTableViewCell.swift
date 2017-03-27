@@ -12,6 +12,9 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var meal: UILabel!
     @IBOutlet var ingredients: UILabel!
+    @IBOutlet var haveItTextView: UITextView!
+    @IBOutlet var needItTextView: UITextView!
+    @IBOutlet var arrowImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

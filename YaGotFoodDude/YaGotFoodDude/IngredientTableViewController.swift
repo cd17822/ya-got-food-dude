@@ -70,13 +70,18 @@ class IngredientTableViewController: UITableViewController {
         let ingredient = ingredients[indexPath.row]
         
         DispatchQueue.main.async() {
-            while self.photos[indexPath.row] == nil {
+            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
                     // wait for a pic to be there!
             }
             cell.imgView.image = self.photos[indexPath.row]
         }
         
         cell.meal.text = ingredient.name!.capitalized
+        if !ingredient.isOwned {
+            cell.meal.textColor = UIColor(red:0.94, green:0.24, blue:0.55, alpha:1.00)
+            cell.needItTextView.isHidden = false
+            cell.haveItTextView.isHidden = true
+        }
         
         var mealsList = "For: "
         for (index, meal) in ingredient.meals!.enumerated() {

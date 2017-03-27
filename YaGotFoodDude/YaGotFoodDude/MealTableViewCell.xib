@@ -32,40 +32,79 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goulash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3B-Mg-T0o">
-                        <rect key="frame" x="87" y="8" width="285" height="33"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="285" id="NfJ-Dg-hFW"/>
-                        </constraints>
+                        <rect key="frame" x="87" y="8" width="233" height="33"/>
                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="28"/>
                         <color key="textColor" red="0.24108277959999999" green="0.88854298860000003" blue="0.66814122490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasta, sauce, meat, garlic, peppers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-E7-pHJ">
-                        <rect key="frame" x="87" y="40" width="285" height="20"/>
+                        <rect key="frame" x="87" y="40" width="233" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="285" id="fbx-85-mtj"/>
+                            <constraint firstAttribute="width" constant="233" id="hzV-5o-faC"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                         <color key="textColor" red="0.5108434054658535" green="0.3756675728312438" blue="0.72800999365482233" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="HAVE IT" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GVg-Do-DDo">
+                        <rect key="frame" x="324" y="6" width="51" height="52"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="51" id="SMf-dg-9cw"/>
+                            <constraint firstAttribute="height" constant="52" id="lRA-ka-EVz"/>
+                        </constraints>
+                        <color key="textColor" red="0.24108277959999999" green="0.88854298860000003" blue="0.66814122490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="NEED IT" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sQb-8Y-riA">
+                        <rect key="frame" x="324" y="6" width="51" height="52"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="51" id="8Po-Bk-xfJ"/>
+                            <constraint firstAttribute="height" constant="52" id="P0K-0E-zUn"/>
+                        </constraints>
+                        <color key="textColor" red="0.86769652366638184" green="0.30258813500404358" blue="0.54517030715942383" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="2bf-0q-ARI">
+                        <rect key="frame" x="324" y="6" width="51" height="52"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="g3B-Mg-T0o" firstAttribute="leading" secondItem="DlK-DV-nOj" secondAttribute="trailing" constant="19" id="84w-Bx-JmI"/>
                     <constraint firstItem="nFR-E7-pHJ" firstAttribute="top" secondItem="g3B-Mg-T0o" secondAttribute="bottom" constant="-1" id="Gn7-dD-a3w"/>
+                    <constraint firstItem="2bf-0q-ARI" firstAttribute="centerX" secondItem="sQb-8Y-riA" secondAttribute="centerX" id="QHZ-vQ-aOA"/>
                     <constraint firstItem="DlK-DV-nOj" firstAttribute="centerY" secondItem="5qH-XF-TGN" secondAttribute="centerY" id="QoI-hg-NPe"/>
                     <constraint firstAttribute="bottomMargin" secondItem="nFR-E7-pHJ" secondAttribute="bottom" constant="-3.5" id="Syj-7B-8pp"/>
+                    <constraint firstItem="sQb-8Y-riA" firstAttribute="centerX" secondItem="GVg-Do-DDo" secondAttribute="centerX" id="VDq-So-EJ6"/>
+                    <constraint firstItem="2bf-0q-ARI" firstAttribute="centerY" secondItem="sQb-8Y-riA" secondAttribute="centerY" id="WV7-7t-Q41"/>
+                    <constraint firstItem="2bf-0q-ARI" firstAttribute="height" secondItem="sQb-8Y-riA" secondAttribute="height" id="Wje-K7-iRL"/>
+                    <constraint firstItem="sQb-8Y-riA" firstAttribute="height" secondItem="GVg-Do-DDo" secondAttribute="height" id="adi-cT-j2O"/>
+                    <constraint firstItem="2bf-0q-ARI" firstAttribute="width" secondItem="sQb-8Y-riA" secondAttribute="width" id="aer-Cq-yg1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GVg-Do-DDo" secondAttribute="trailing" constant="-8" id="bvS-FH-1Gj"/>
+                    <constraint firstItem="sQb-8Y-riA" firstAttribute="width" secondItem="GVg-Do-DDo" secondAttribute="width" id="eXL-iJ-GYv"/>
                     <constraint firstItem="g3B-Mg-T0o" firstAttribute="leading" secondItem="nFR-E7-pHJ" secondAttribute="leading" id="khA-gT-QRp"/>
+                    <constraint firstItem="sQb-8Y-riA" firstAttribute="centerY" secondItem="GVg-Do-DDo" secondAttribute="centerY" id="tpI-E0-XLS"/>
+                    <constraint firstItem="g3B-Mg-T0o" firstAttribute="trailing" secondItem="nFR-E7-pHJ" secondAttribute="trailing" id="vpt-nx-zvS"/>
+                    <constraint firstItem="GVg-Do-DDo" firstAttribute="centerY" secondItem="5qH-XF-TGN" secondAttribute="centerY" id="w36-eN-FeK"/>
                     <constraint firstAttribute="leadingMargin" secondItem="DlK-DV-nOj" secondAttribute="leading" constant="-5" id="x7V-Co-Sho"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="arrowImageView" destination="2bf-0q-ARI" id="1Me-8D-jeZ"/>
+                <outlet property="haveItTextView" destination="GVg-Do-DDo" id="bbB-kE-kI1"/>
                 <outlet property="imgView" destination="DlK-DV-nOj" id="DgG-l0-yIO"/>
                 <outlet property="ingredients" destination="nFR-E7-pHJ" id="8hK-G6-YMI"/>
                 <outlet property="meal" destination="g3B-Mg-T0o" id="58B-js-wZD"/>
+                <outlet property="needItTextView" destination="sQb-8Y-riA" id="1Mk-KY-ELd"/>
             </connections>
             <point key="canvasLocation" x="-75.5" y="-181.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrow" width="125" height="125"/>
+    </resources>
 </document>
