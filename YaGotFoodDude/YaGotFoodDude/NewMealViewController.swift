@@ -56,8 +56,11 @@ class NewMealViewController: UIViewController {
     }
     
     @IBAction func doneTapped(_ sender: Any) {
-        // save the meal
-        // dismissvc
+        if mealField.text == nil || mealField.text == "" { return }
+        
+        DataGetter.saveMeal(mealField.text!, madeOf: ingredientNames) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     /*
