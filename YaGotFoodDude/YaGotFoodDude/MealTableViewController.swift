@@ -10,20 +10,14 @@ import UIKit
 import CoreData
 
 class MealTableViewController: UITableViewController {
-    var meals = [NSManagedObject]()
+    var meals = [Meal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        registerNib()
         fetchMeals()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,9 +25,13 @@ class MealTableViewController: UITableViewController {
 
     // MARK: - Personal
     
+    func registerNib() {
+        tableView.register(UINib(nibName: "MealTableViewCell", bundle: nil), forCellReuseIdentifier: "MealTableViewCell")
+    }
+    
     func fetchMeals() {
         DataGetter.getMeals { meals, error in
-            print(meals)
+            self.meals = meals
         }
     }
     
@@ -46,21 +44,27 @@ class MealTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meals.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as! MealTableViewCell
-        let mealName = meals[indexPath.row].value(forKey: "name") as! String
+        let meal = meals[indexPath.row]
         
-        ImageGetter.get(mealName) { image in
+        ImageGetter.get(meal.name!) { image in
             DispatchQueue.main.async() {
                 cell.imgView.image = image
-//                self.view.addSubview(cell.imgView)
             }
         }
         
-        cell.meal.text = mealName
-        cell.ingredients.text = meals[indexPath.row].value(forKey: "ingredients") as? String
+        cell.meal.text = meals[indexPath.row].name
+        
+        var ingredientsList = ""
+        for (index, ingredient) in meal.ingredients!.enumerated() {
+            ingredientsList += (ingredient as! Ingredient).name!
+            if index != meal.ingredients!.count - 1 {
+                ingredientsList += ", "
+            }
+        }
+        cell.ingredients.text = ingredientsList
         
         return cell
     }
