@@ -45,10 +45,13 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.24108277959999999" green="0.88854298860000003" blue="0.66814122490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.24108277959999999" green="0.88854298860000003" blue="0.66814122490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="5mE-bH-coh" kind="relationship" relationship="viewControllers" id="yDO-d1-ZUs"/>
@@ -65,7 +68,7 @@
             <objects>
                 <tableViewController id="os8-7K-9KQ" customClass="IngredientTableViewController" customModule="YaGotFoodDude" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="VfG-Dr-f9i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -83,7 +86,7 @@
                             <outlet property="delegate" destination="os8-7K-9KQ" id="0rz-B2-oWT"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="YJZ-49-3u9"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="cart" selectedImage="cart" id="YJZ-49-3u9"/>
                     <navigationItem key="navigationItem" title="Shopping List" id="QVR-oM-z3j"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GN4-oP-dd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,7 +98,7 @@
             <objects>
                 <tableViewController id="5mE-bH-coh" customClass="MealTableViewController" customModule="YaGotFoodDude" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="clr-tI-gdl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -113,7 +116,7 @@
                             <outlet property="delegate" destination="5mE-bH-coh" id="BEd-c0-ev9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ey3-k5-wh4"/>
+                    <tabBarItem key="tabBarItem" title="Meals" image="meal" selectedImage="meal" id="Ey3-k5-wh4"/>
                     <navigationItem key="navigationItem" title="Meals" id="bhY-vV-2MV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3x-dR-gPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,4 +231,8 @@
             <point key="canvasLocation" x="1853.6231884057972" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart" width="25" height="25"/>
+        <image name="meal" width="25" height="25"/>
+    </resources>
 </document>
