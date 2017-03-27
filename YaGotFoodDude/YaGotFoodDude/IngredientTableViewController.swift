@@ -48,9 +48,16 @@ class IngredientTableViewController: UITableViewController {
         }
     }
     
-    func fetchIngredients(_ cb: () -> ()) {
+    func fetchIngredients(_ cb: @escaping () -> ()) {
         DataGetter.getIngredients { ingredients, error in
-            self.ingredients = ingredients
+            self.ingredients.removeAll()
+            for ingredient in ingredients {
+                if ingredient.isOwned {
+                    self.ingredients.append(ingredient)
+                } else {
+                    self.ingredients.insert(ingredient, at: 0)
+                }
+            }
             cb()
         }
     }
@@ -70,8 +77,9 @@ class IngredientTableViewController: UITableViewController {
         let ingredient = ingredients[indexPath.row]
         
         DispatchQueue.main.async() {
-            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
-                    // wait for a pic to be there!
+            var counter = 0
+            while self.photos[indexPath.row] == nil && indexPath.row < 10 && counter < 100000 { // < 10 because the others aren't immediately visible
+                    counter += 1
             }
             cell.imgView.image = self.photos[indexPath.row]
         }
@@ -81,6 +89,10 @@ class IngredientTableViewController: UITableViewController {
             cell.meal.textColor = UIColor(red:0.94, green:0.24, blue:0.55, alpha:1.00)
             cell.needItTextView.isHidden = false
             cell.haveItTextView.isHidden = true
+        } else {
+            cell.meal.textColor = UIColor(red:0.23, green:0.88, blue:0.67, alpha:1.00)
+            cell.needItTextView.isHidden = true
+            cell.haveItTextView.isHidden = false
         }
         
         var mealsList = "For: "
@@ -96,7 +108,11 @@ class IngredientTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true) // ungrey
         
+        DataGetter.toggleOwnership(on: ingredients[indexPath.row]) {
+            self.tableView.reloadData()
+        }
     }
     
     /*

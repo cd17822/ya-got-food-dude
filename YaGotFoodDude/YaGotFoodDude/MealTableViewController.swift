@@ -49,9 +49,16 @@ class MealTableViewController: UITableViewController {
         }
     }
     
-    func fetchMeals(_ cb: () -> ()) {
+    func fetchMeals(_ cb: @escaping () -> ()) {
         DataGetter.getMeals { meals, error in
-            self.meals = meals
+            self.meals.removeAll()
+            for meal in meals {
+                if meal.neededIngredients.count == 0 { // if meal is owned
+                    self.meals.append(meal)
+                } else {
+                    self.meals.insert(meal, at: 0)
+                }
+            }
             cb()
         }
     }
@@ -71,8 +78,9 @@ class MealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         DispatchQueue.main.async() {
-            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
-                // wait for a pic to be there!
+            var counter = 0
+            while self.photos[indexPath.row] == nil && indexPath.row < 10 && counter < 100000 { // < 10 because the others aren't immediately visible
+                counter += 1
             }
             cell.imgView.image = self.photos[indexPath.row]
         }
@@ -95,7 +103,7 @@ class MealTableViewController: UITableViewController {
             
             for (index, ingredient) in neededIngredients.enumerated() {
                 ingredientsList += (ingredient).name!.capitalized
-                if index != meal.ingredients!.count - 1 {
+                if index != neededIngredients.count - 1 {
                     ingredientsList += ", "
                 }
             }
@@ -104,6 +112,7 @@ class MealTableViewController: UITableViewController {
         
         cell.arrowImageView.isHidden = false
         cell.haveItTextView.isHidden = true
+        cell.ingredients.frame.insetBy(dx: 20, dy: 0)
         
         return cell
     }

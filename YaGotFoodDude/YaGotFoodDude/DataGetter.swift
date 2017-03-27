@@ -72,7 +72,7 @@ class DataGetter {
                     let ingredient = Ingredient(context: persistentContainer.viewContext)
                     ingredient.name = ingredientName.lowercased()
                     ingredient.addToMeals(meal)
-                    ingredient.isOwned = false
+                    ingredient.isOwned = true
                 }
             }
             print("this should happen first")
@@ -84,6 +84,17 @@ class DataGetter {
             callback(nil)
         } catch let error as NSError {
             callback(error)
+        }
+    }
+    
+    public static func toggleOwnership(on ingredient: Ingredient, _ cb: () -> ()) {
+        do {
+            ingredient.isOwned = !ingredient.isOwned
+            try persistentContainer.viewContext.save()
+            cb()
+        } catch let error as NSError {
+            print(error)
+            cb()
         }
     }
 }
