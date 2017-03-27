@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,34 +16,49 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gae-56-Vdc" id="5qH-XF-TGN">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-DV-nOj">
-                        <rect key="frame" x="8" y="5" width="55" height="55"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-DV-nOj">
+                        <rect key="frame" x="13" y="5" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="AEu-gm-BPe"/>
+                            <constraint firstAttribute="height" constant="55" id="elh-yM-8o7"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <real key="value" value="27.5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goulash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3B-Mg-T0o">
-                        <rect key="frame" x="71" y="8" width="296" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goulash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3B-Mg-T0o">
+                        <rect key="frame" x="87" y="8" width="285" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="285" id="NfJ-Dg-hFW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="28"/>
+                        <color key="textColor" red="0.24108277959999999" green="0.88854298860000003" blue="0.66814122490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pasta, sauce, meat, garlic, peppers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-E7-pHJ">
-                        <rect key="frame" x="71" y="39" width="296" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasta, sauce, meat, garlic, peppers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-E7-pHJ">
+                        <rect key="frame" x="87" y="40" width="285" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="285" id="fbx-85-mtj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                        <color key="textColor" red="0.5108434054658535" green="0.3756675728312438" blue="0.72800999365482233" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.88739121732783433" green="1" blue="0.8229254086705502" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="g3B-Mg-T0o" firstAttribute="leading" secondItem="DlK-DV-nOj" secondAttribute="trailing" constant="19" id="84w-Bx-JmI"/>
+                    <constraint firstItem="nFR-E7-pHJ" firstAttribute="top" secondItem="g3B-Mg-T0o" secondAttribute="bottom" constant="-1" id="Gn7-dD-a3w"/>
+                    <constraint firstItem="DlK-DV-nOj" firstAttribute="centerY" secondItem="5qH-XF-TGN" secondAttribute="centerY" id="QoI-hg-NPe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nFR-E7-pHJ" secondAttribute="bottom" constant="-3.5" id="Syj-7B-8pp"/>
+                    <constraint firstItem="g3B-Mg-T0o" firstAttribute="leading" secondItem="nFR-E7-pHJ" secondAttribute="leading" id="khA-gT-QRp"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="DlK-DV-nOj" secondAttribute="leading" constant="-5" id="x7V-Co-Sho"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgView" destination="DlK-DV-nOj" id="DgG-l0-yIO"/>

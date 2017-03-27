@@ -23,6 +23,7 @@ class MealTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.downloadPhotos()
         }
+        (navigationController!.navigationBar.items![0]).title = "Meals"
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,7 +71,7 @@ class MealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         DispatchQueue.main.async() {
-            while self.photos[indexPath.row] == nil {
+            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
                 // wait for a pic to be there!
             }
             cell.imgView.image = self.photos[indexPath.row]

@@ -22,6 +22,7 @@ class IngredientTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.downloadPhotos()
         }
+        (navigationController!.navigationBar.items![0]).title = "Shopping List"
     }
 
     override func didReceiveMemoryWarning() {
