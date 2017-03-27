@@ -63,6 +63,10 @@ class NewMealViewController: UIViewController {
         }
     }
     
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

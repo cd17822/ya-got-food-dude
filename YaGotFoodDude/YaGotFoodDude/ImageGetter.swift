@@ -14,6 +14,8 @@ class ImageGetter {
         initialQuery(query) { url in // this should be a string but its not
             if url != nil {
                 self.downloadImage(url!, cb)
+            } else {
+                cb(nil)
             }
         }
     }
@@ -82,9 +84,12 @@ class ImageGetter {
                                     }
                                 }
                             }
+                            if goodUrl == nil && hits.count > 0 {
+                                goodUrl = hits[0]["webformatURL"] as? String
+                            }
                         }
                     }
-                    print(goodUrl ?? "no good pic")
+                    print(goodUrl ?? "no good pic for \(query) (\(url))")
                     cb(goodUrl)
                 }catch {
                     print("errorhomes")

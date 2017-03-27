@@ -10,47 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shopping List-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="YaGotFoodDude" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="102.66666666666669" y="347.66666666666669" width="209" height="41"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="99.666666666666686" y="396.66666666666669" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" title="Shopping List" id="lVf-uf-l7C"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="790" y="349"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yex-k8-pPn">
             <objects>
@@ -72,11 +31,11 @@
             </objects>
             <point key="canvasLocation" x="-836" y="0.0"/>
         </scene>
-        <!--ya got food dude-->
+        <!--Meals-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="YaGotFoodDude" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="ya got food dude" id="AeP-Cd-lyM">
+                    <navigationItem key="navigationItem" title="Meals" id="AeP-Cd-lyM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bnn-kq-7mQ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -94,12 +53,42 @@
                     <connections>
                         <segue destination="5mE-bH-coh" kind="relationship" relationship="viewControllers" id="yDO-d1-ZUs"/>
                         <segue destination="GjG-8L-Q2Z" kind="presentation" identifier="MainTabBarControllerToNewMealViewController" id="k5H-Cn-6gj"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="xgt-FX-1QI"/>
+                        <segue destination="os8-7K-9KQ" kind="relationship" relationship="viewControllers" id="LWl-HC-ZP9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Shopping List-->
+        <scene sceneID="0IO-3b-Ar0">
+            <objects>
+                <tableViewController id="os8-7K-9KQ" customClass="IngredientTableViewController" customModule="YaGotFoodDude" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="VfG-Dr-f9i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientTableViewCell" id="tta-0a-Vh9">
+                                <rect key="frame" x="0.0" y="28" width="414" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tta-0a-Vh9" id="VMg-HQ-yxP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="os8-7K-9KQ" id="9Eg-HW-t9x"/>
+                            <outlet property="delegate" destination="os8-7K-9KQ" id="0rz-B2-oWT"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="YJZ-49-3u9"/>
+                    <navigationItem key="navigationItem" title="Shopping List" id="QVR-oM-z3j"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GN4-oP-dd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="422"/>
         </scene>
         <!--Meals-->
         <scene sceneID="0No-Hw-CX7">
@@ -114,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B82-2b-rcd" id="217-Wd-gmh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="63.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -156,8 +145,8 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Meal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csl-FE-OSr">
-                                <rect key="frame" x="165" y="30" width="85" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="162.66666666666666" y="30" width="90" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -196,6 +185,16 @@
                                     <action selector="doneTapped:" destination="GjG-8L-Q2Z" eventType="touchUpInside" id="sBS-Gg-uWw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-xW-jrH">
+                                <rect key="frame" x="20" y="24" width="63" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="GjG-8L-Q2Z" eventType="touchUpInside" id="knz-g0-fQG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24108277959999999" green="0.88854298860000003" blue="0.66814122490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -204,8 +203,10 @@
                             <constraint firstItem="7b0-ur-wRv" firstAttribute="top" secondItem="Csl-FE-OSr" secondAttribute="bottom" constant="17" id="9DH-9u-QRG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Yph-aO-fJw" secondAttribute="trailing" id="CTA-ov-PQB"/>
                             <constraint firstItem="ynS-Y6-C9C" firstAttribute="top" secondItem="Yph-aO-fJw" secondAttribute="bottom" id="FRt-Yp-VSc"/>
+                            <constraint firstItem="l6r-xW-jrH" firstAttribute="centerY" secondItem="Csl-FE-OSr" secondAttribute="centerY" id="GJb-fH-t7M"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Yph-aO-fJw" secondAttribute="leading" id="I1l-eW-HKz"/>
                             <constraint firstItem="iMX-pN-Gf4" firstAttribute="top" secondItem="ynS-Y6-C9C" secondAttribute="bottom" constant="24" id="MSC-IM-41a"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="l6r-xW-jrH" secondAttribute="leading" id="On3-P1-t1R"/>
                             <constraint firstItem="sMj-fp-CEg" firstAttribute="centerY" secondItem="Csl-FE-OSr" secondAttribute="centerY" id="R6J-1l-iaa"/>
                             <constraint firstItem="7b0-ur-wRv" firstAttribute="centerX" secondItem="0Ex-kq-69z" secondAttribute="centerX" id="bZ1-0o-OTj"/>
                             <constraint firstItem="Csl-FE-OSr" firstAttribute="top" secondItem="tpb-2V-rF0" secondAttribute="bottom" constant="10" id="eqR-vd-5FR"/>
@@ -227,7 +228,4 @@
             <point key="canvasLocation" x="1853.6231884057972" y="0.0"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="second" width="30" height="30"/>
-    </resources>
 </document>
