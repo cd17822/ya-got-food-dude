@@ -17,8 +17,6 @@ class NewMealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +24,7 @@ class NewMealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func mealFieldEditingChanged(_ sender: Any) {
-        ImageGetter.get(mealField.text ?? "") { image in
-            DispatchQueue.main.async() {
-                self.mealPreviewImageView.image = image
-            }
-        }
-    }
-
-    @IBAction func ingredientFieldEditingDidEnd(_ sender: Any) {
+    @IBAction func hitReturnOnNewIngredientField(_ sender: Any) {
         if newIngredientField.text == nil || newIngredientField.text == "" {
             return
         }
@@ -53,7 +43,19 @@ class NewMealViewController: UIViewController {
         ingredientsField.text = ingredientsList
     }
     
-    @IBAction func DoneTapped(_ sender: Any) {
+    @IBAction func mealFieldEditingChanged(_ sender: Any) {
+        ImageGetter.get(mealField.text ?? "") { image in
+            DispatchQueue.main.async() {
+                self.mealPreviewImageView.image = image
+            }
+        }
+    }
+    
+    @IBAction func mealFieldEditingDidEnd(_ sender: Any) {
+        mealFieldEditingChanged("") // "" acts as placeholder sender
+    }
+    
+    @IBAction func doneTapped(_ sender: Any) {
         // save the meal
         // dismissvc
     }

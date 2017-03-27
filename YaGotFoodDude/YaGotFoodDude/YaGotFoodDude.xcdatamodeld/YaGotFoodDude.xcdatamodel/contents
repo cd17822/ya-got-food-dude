@@ -10,7 +10,7 @@
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="meals" inverseEntity="Ingredient" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Meal" positionX="-396" positionY="-18" width="128" height="73"/>
-        <element name="Ingredient" positionX="-108" positionY="-34" width="128" height="88"/>
+        <element name="Ingredient" positionX="-261" positionY="117" width="128" height="88"/>
+        <element name="Meal" positionX="-477" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

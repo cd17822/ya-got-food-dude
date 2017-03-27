@@ -29,12 +29,12 @@ class ImageGetter {
         let downloadPicTask = session.dataTask(with: catPictureURL) { (data, response, error) in
             // The download has finished.
             if let e = error {
-                print("Error downloading cat picture: \(e)")
+                print("Error downloading picture: \(e)")
             } else {
                 // No errors found.
                 // It would be weird if we didn't have a response, so check for that too.
                 if let res = response as? HTTPURLResponse {
-                    print("Downloaded cat picture with response code \(res.statusCode)")
+                    print("Downloaded picture with response code \(res.statusCode)")
                     if let imageData = data {
                         // Finally convert that Data into an image and do what you wish with it.
                         let image = UIImage(data: imageData)
@@ -55,7 +55,7 @@ class ImageGetter {
     private static func initialQuery(_ query: String, _ cb: @escaping (String?) -> ()) {
         let config = URLSessionConfiguration.default // Session Configuration
         let session = URLSession(configuration: config) // Load configuration into Session
-        let urlizedQuery = query.addingPercentEncoding(withAllowedCharacters: [])
+        let urlizedQuery = query.replacingOccurrences(of: " ", with: "%20")
         let url = URL(string: "https://pixabay.com/api/?key=4915229-c4d2e0ed2084483a64af60712&q=\(urlizedQuery)&image_type=photo&per_page=10")
         if url == nil {
             print(urlizedQuery)
@@ -76,24 +76,20 @@ class ImageGetter {
                         if let hits = json["hits"] as? [[String: Any]] {
                             for hit in hits {
                                 if let previewUrl = hit["previewURL"] as? String {
-                                    if previewUrl.contains(query) {
-                                        goodUrl = previewUrl //hit["webformatURL"] as? String
+                                    if previewUrl.contains(query.lowercased().components(separatedBy: " ")[0]) {
+                                        goodUrl = hit["webformatURL"] as? String
                                         break
                                     }
                                 }
                             }
                         }
                     }
-                    print(goodUrl ?? "")
+                    print(goodUrl ?? "no good pic")
                     cb(goodUrl)
                 }catch {
                     print("errorhomes")
                 }
-                
-                
             }
-            
-            
         })
         
         task.resume()
