@@ -10,7 +10,7 @@ import UIKit
 
 class IngredientTableViewController: UITableViewController {
     var ingredients = [Ingredient]()
-    var photos = [UIImage?]()
+    var photos = [String: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +37,15 @@ class IngredientTableViewController: UITableViewController {
     }
     
     func downloadPhotos() {
-        for _ in ingredients {
-            photos.append(nil) // we dont like race conditions!
-        }
-        
         for (index, ingredient) in ingredients.enumerated() {
-            ImageGetter.get(ingredient.name!, cb: { image in
-                self.photos[index] = image ?? #imageLiteral(resourceName: "food")
-                DispatchQueue.main.async() {
-                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
-                }
-            })
+            if photos[ingredient.name!] == nil {
+                ImageGetter.get(ingredient.name!, cb: { image in
+                    self.photos[ingredient.name!] = image ?? #imageLiteral(resourceName: "food")
+                    DispatchQueue.main.async() {
+                        self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
+                    }
+                })
+            }
         }
     }
     
@@ -80,10 +78,7 @@ class IngredientTableViewController: UITableViewController {
         let ingredient = ingredients[indexPath.row]
         
         DispatchQueue.main.async() {
-//            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
-//                // wait
-//            }
-            cell.imgView.image = self.photos[indexPath.row]
+            cell.imgView.image = self.photos[ingredient.name!]
         }
         
         cell.meal.text = ingredient.name!.capitalized

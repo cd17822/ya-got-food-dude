@@ -11,7 +11,7 @@ import CoreData
 
 class MealTableViewController: UITableViewController {
     var meals = [Meal]()
-    var photos = [UIImage?]()
+    var photos = [String: UIImage]()
     var selectedCellIndex: Int?
     
     override func viewDidLoad() {
@@ -40,17 +40,15 @@ class MealTableViewController: UITableViewController {
     }
     
     func downloadPhotos() {
-        for _ in meals {
-            photos.append(nil) // we dont like race conditions!
-        }
-        
         for (index, meal) in meals.enumerated() {
-            ImageGetter.get(meal.name!, cb: { image in
-                self.photos[index] = image ?? #imageLiteral(resourceName: "food")
-                DispatchQueue.main.async() {
-                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
-                }
-            })
+            if photos[meal.name!] == nil {
+                ImageGetter.get(meal.name!, cb: { image in
+                    self.photos[meal.name!] = image ?? #imageLiteral(resourceName: "food")
+                    DispatchQueue.main.async() {
+                        self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
+                    }
+                })
+            }
         }
     }
     
@@ -83,7 +81,7 @@ class MealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         DispatchQueue.main.async() {
-            cell.imgView.image = self.photos[indexPath.row]
+            cell.imgView.image = self.photos[meal.name!]
         }
         
         cell.meal.text = meal.name!.capitalized
@@ -164,8 +162,8 @@ class MealTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as! MealViewController).meal = meals[selectedCellIndex!]
-        (segue.destination as! MealViewController).image = photos[selectedCellIndex!]
-        (segue.destination as! MealViewController).parentVC = self
+        let meal = meals[selectedCellIndex!]
+        (segue.destination as! MealViewController).meal = meal
+        (segue.destination as! MealViewController).image = photos[meal.name!]
     }
 }

@@ -14,7 +14,6 @@ class MealViewController: UIViewController {
     @IBOutlet var navigationBarTitle: UINavigationItem!
     var meal: Meal?
     var image: UIImage?
-    var parentVC = UIViewController() // i wish i could just do : UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
