@@ -45,7 +45,7 @@ class IngredientTableViewController: UITableViewController {
             ImageGetter.get(ingredient.name!, cb: { image in
                 self.photos[index] = image ?? #imageLiteral(resourceName: "food")
                 DispatchQueue.main.async() {
-                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
+                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
                 }
             })
         }

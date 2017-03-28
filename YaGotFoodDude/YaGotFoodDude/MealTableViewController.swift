@@ -48,7 +48,7 @@ class MealTableViewController: UITableViewController {
             ImageGetter.get(meal.name!, cb: { image in
                 self.photos[index] = image ?? #imageLiteral(resourceName: "food")
                 DispatchQueue.main.async() {
-                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
+                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .fade)
                 }
             })
         }
@@ -59,9 +59,9 @@ class MealTableViewController: UITableViewController {
             self.meals.removeAll()
             for meal in meals {
                 if meal.neededIngredients.count == 0 { // if meal is owned
-                    self.meals.append(meal)
-                } else {
                     self.meals.insert(meal, at: 0)
+                } else {
+                    self.meals.append(meal)
                 }
             }
             cb()
