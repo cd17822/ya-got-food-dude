@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CB1D11AC1E88AA2900141BFB /* IngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1D11AB1E88AA2900141BFB /* IngredientTableViewController.swift */; };
-		CB2321201E89BE3900BD1AA6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23211F1E89BE3900BD1AA6 /* UIColorExtension.swift */; };
 		CB2321221E89CD8300BD1AA6 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2321211E89CD8300BD1AA6 /* Meal.swift */; };
 		CB2321241E89D31100BD1AA6 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2321231E89D31100BD1AA6 /* MealViewController.swift */; };
 		CB4705091E883E7700E8852E /* NewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4705081E883E7700E8852E /* NewMealViewController.swift */; };
@@ -27,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		CB1D11AB1E88AA2900141BFB /* IngredientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewController.swift; sourceTree = "<group>"; };
-		CB23211F1E89BE3900BD1AA6 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		CB2321211E89CD8300BD1AA6 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		CB2321231E89D31100BD1AA6 /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		CB4705081E883E7700E8852E /* NewMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMealViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				CB6496371E8561F600BF42ED /* AppDelegate.swift */,
-				CB23211F1E89BE3900BD1AA6 /* UIColorExtension.swift */,
 				CB2321211E89CD8300BD1AA6 /* Meal.swift */,
 				CB6496511E85F1F500BF42ED /* MealTableViewController.swift */,
 				CB4705081E883E7700E8852E /* NewMealViewController.swift */,
@@ -180,7 +177,6 @@
 				CB64964C1E85D84400BF42ED /* ImageGetter.swift in Sources */,
 				CB6496541E85F3CE00BF42ED /* DataGetter.swift in Sources */,
 				CB1D11AC1E88AA2900141BFB /* IngredientTableViewController.swift in Sources */,
-				CB2321201E89BE3900BD1AA6 /* UIColorExtension.swift in Sources */,
 				CB6496521E85F1F500BF42ED /* MealTableViewController.swift in Sources */,
 				CB64964E1E85EE6900BF42ED /* MealTableViewCell.swift in Sources */,
 			);
