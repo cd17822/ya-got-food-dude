@@ -30,7 +30,7 @@ class MealViewController: UIViewController {
     
     // MARK: - Personal
     func setUpNavBar() {
-        navigationBarTitle.title = meal!.name
+        navigationBarTitle.title = meal!.name?.capitalized
     }
     
     func setUpImage() {
@@ -82,7 +82,7 @@ class MealViewController: UIViewController {
         }
         
         DataGetter.delete(meals: [meal!], ingredients: ingredientsToDelete) {
-            print(self.navigationController?.popViewController(animated: true))
+            print(self.navigationController?.popViewController(animated: true) ?? "")
         }
     }
     

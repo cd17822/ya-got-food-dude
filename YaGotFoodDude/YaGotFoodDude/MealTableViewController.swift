@@ -47,6 +47,9 @@ class MealTableViewController: UITableViewController {
         for (index, meal) in meals.enumerated() {
             ImageGetter.get(meal.name!, cb: { image in
                 self.photos[index] = image ?? #imageLiteral(resourceName: "food")
+                DispatchQueue.main.async() {
+                    self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
+                }
             })
         }
     }
@@ -80,9 +83,6 @@ class MealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         DispatchQueue.main.async() {
-            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
-                // wait
-            }
             cell.imgView.image = self.photos[indexPath.row]
         }
         
