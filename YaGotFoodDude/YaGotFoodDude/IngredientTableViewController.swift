@@ -22,7 +22,7 @@ class IngredientTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.downloadPhotos()
         }
-        (navigationController!.navigationBar.items![0]).title = "Shopping List"
+        navigationController!.navigationBar.items![0].title = "Shopping List"
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,9 +77,8 @@ class IngredientTableViewController: UITableViewController {
         let ingredient = ingredients[indexPath.row]
         
         DispatchQueue.main.async() {
-            var counter = 0
-            while self.photos[indexPath.row] == nil && indexPath.row < 10 && counter < 100000 { // < 10 because the others aren't immediately visible
-                    counter += 1
+            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
+                // wait
             }
             cell.imgView.image = self.photos[indexPath.row]
         }

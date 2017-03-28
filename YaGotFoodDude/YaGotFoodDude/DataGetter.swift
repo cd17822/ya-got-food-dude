@@ -97,4 +97,24 @@ class DataGetter {
             cb()
         }
     }
+    
+    public static func delete(meals: [Meal], ingredients: [Ingredient], _ cb: () -> ()) {
+        do {
+            for meal in meals {
+                persistentContainer.viewContext.delete(meal)
+            }
+            
+            for ingredient in ingredients {
+                persistentContainer.viewContext.delete(ingredient)
+            }
+            
+            try persistentContainer.viewContext.save()
+            
+            cb()
+        } catch let error as NSError {
+            print(error)
+            
+            cb()
+        }
+    }
 }

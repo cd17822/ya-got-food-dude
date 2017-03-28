@@ -12,6 +12,7 @@ import CoreData
 class MealTableViewController: UITableViewController {
     var meals = [Meal]()
     var photos = [UIImage?]()
+    var selectedCellIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +20,12 @@ class MealTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        selectedCellIndex = nil
         fetchMeals() {
             self.tableView.reloadData()
             self.downloadPhotos()
         }
-        (navigationController!.navigationBar.items![0]).title = "Meals"
+        navigationController!.navigationBar.items![0].title = "Meals"
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,9 +80,8 @@ class MealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         DispatchQueue.main.async() {
-            var counter = 0
-            while self.photos[indexPath.row] == nil && indexPath.row < 10 && counter < 100000 { // < 10 because the others aren't immediately visible
-                counter += 1
+            while self.photos[indexPath.row] == nil && indexPath.row < 10 { // < 10 because the others aren't immediately visible
+                // wait
             }
             cell.imgView.image = self.photos[indexPath.row]
         }
@@ -97,6 +98,7 @@ class MealTableViewController: UITableViewController {
         }
         
         if neededIngredients.count == 0 {
+            cell.meal.textColor = UIColor(red:0.23, green:0.88, blue:0.67, alpha:1.00)
             cell.ingredients.text = "You have all ingredients needed!"
         } else {
             cell.meal.textColor = UIColor(red:0.94, green:0.24, blue:0.55, alpha:1.00)
@@ -118,7 +120,8 @@ class MealTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedCellIndex = indexPath.row
+        performSegue(withIdentifier: "MealTableViewControllerToMealViewController", sender: nil)
     }
     
 
@@ -157,13 +160,12 @@ class MealTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        (segue.destination as! MealViewController).meal = meals[selectedCellIndex!]
+        (segue.destination as! MealViewController).image = photos[selectedCellIndex!]
+        (segue.destination as! MealViewController).parentVC = self
     }
-    */
 }

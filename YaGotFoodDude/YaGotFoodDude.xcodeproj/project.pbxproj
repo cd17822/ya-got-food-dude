@@ -10,6 +10,7 @@
 		CB1D11AC1E88AA2900141BFB /* IngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1D11AB1E88AA2900141BFB /* IngredientTableViewController.swift */; };
 		CB2321201E89BE3900BD1AA6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23211F1E89BE3900BD1AA6 /* UIColorExtension.swift */; };
 		CB2321221E89CD8300BD1AA6 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2321211E89CD8300BD1AA6 /* Meal.swift */; };
+		CB2321241E89D31100BD1AA6 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2321231E89D31100BD1AA6 /* MealViewController.swift */; };
 		CB4705091E883E7700E8852E /* NewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4705081E883E7700E8852E /* NewMealViewController.swift */; };
 		CB47050B1E8849DC00E8852E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47050A1E8849DC00E8852E /* MainTabBarController.swift */; };
 		CB6496381E8561F600BF42ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6496371E8561F600BF42ED /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		CB1D11AB1E88AA2900141BFB /* IngredientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewController.swift; sourceTree = "<group>"; };
 		CB23211F1E89BE3900BD1AA6 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		CB2321211E89CD8300BD1AA6 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		CB2321231E89D31100BD1AA6 /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		CB4705081E883E7700E8852E /* NewMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMealViewController.swift; sourceTree = "<group>"; };
 		CB47050A1E8849DC00E8852E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CB6496341E8561F600BF42ED /* YaGotFoodDude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YaGotFoodDude.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				CB1D11AB1E88AA2900141BFB /* IngredientTableViewController.swift */,
 				CB64964D1E85EE6900BF42ED /* MealTableViewCell.swift */,
 				CB64964F1E85EE7700BF42ED /* MealTableViewCell.xib */,
+				CB2321231E89D31100BD1AA6 /* MealViewController.swift */,
 				CB64964B1E85D84400BF42ED /* ImageGetter.swift */,
 				CB6496531E85F3CE00BF42ED /* DataGetter.swift */,
 				CB47050A1E8849DC00E8852E /* MainTabBarController.swift */,
@@ -173,6 +176,7 @@
 				CB47050B1E8849DC00E8852E /* MainTabBarController.swift in Sources */,
 				CB6496381E8561F600BF42ED /* AppDelegate.swift in Sources */,
 				CB2321221E89CD8300BD1AA6 /* Meal.swift in Sources */,
+				CB2321241E89D31100BD1AA6 /* MealViewController.swift in Sources */,
 				CB64964C1E85D84400BF42ED /* ImageGetter.swift in Sources */,
 				CB6496541E85F3CE00BF42ED /* DataGetter.swift in Sources */,
 				CB1D11AC1E88AA2900141BFB /* IngredientTableViewController.swift in Sources */,

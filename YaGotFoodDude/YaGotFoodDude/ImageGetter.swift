@@ -22,31 +22,18 @@ class ImageGetter {
     
     private static func downloadImage(_ url: String, _ cb: @escaping (UIImage?) -> ()) {
         let catPictureURL = URL(string: url)!
-        
-        // Creating a session object with the default configuration.
-        // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
         let session = URLSession(configuration: .default)
         
-        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
         let downloadPicTask = session.dataTask(with: catPictureURL) { (data, response, error) in
-            // The download has finished.
             if let e = error {
                 print("Error downloading picture: \(e)")
             } else {
-                // No errors found.
-                // It would be weird if we didn't have a response, so check for that too.
-                if let res = response as? HTTPURLResponse {
-                    print("Downloaded picture with response code \(res.statusCode)")
-                    if let imageData = data {
-                        // Finally convert that Data into an image and do what you wish with it.
-                        let image = UIImage(data: imageData)
-                        // Do something with your image.
-                        cb(image)
-                    } else {
-                        print("Couldn't get image: Image is nil")
-                    }
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    cb(image)
                 } else {
-                    print("Couldn't get response code for some reason")
+                    print("Couldn't get image: Image is nil")
+                    cb(nil)
                 }
             }
         }
@@ -55,8 +42,8 @@ class ImageGetter {
     }
     
     private static func initialQuery(_ query: String, _ cb: @escaping (String?) -> ()) {
-        let config = URLSessionConfiguration.default // Session Configuration
-        let session = URLSession(configuration: config) // Load configuration into Session
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
         let urlizedQuery = query.replacingOccurrences(of: " ", with: "%20")
         let url = URL(string: "https://pixabay.com/api/?key=4915229-c4d2e0ed2084483a64af60712&q=\(urlizedQuery)&image_type=photo&per_page=10")
         if url == nil {
@@ -91,8 +78,8 @@ class ImageGetter {
                     }
                     print(goodUrl ?? "no good pic for \(query) (\(url))")
                     cb(goodUrl)
-                }catch {
-                    print("errorhomes")
+                }catch let error as NSError {
+                    print(error)
                 }
             }
         })
