@@ -97,7 +97,7 @@ class MealTableViewController: UITableViewController {
         
         if neededIngredients.count == 0 {
             cell.meal.textColor = UIColor(red:0.23, green:0.88, blue:0.67, alpha:1.00)
-            cell.ingredients.text = "You have all ingredients needed!"
+            cell.ingredients.text = "You have all the ingredients!"
         } else {
             cell.meal.textColor = UIColor(red:0.94, green:0.24, blue:0.55, alpha:1.00)
             
